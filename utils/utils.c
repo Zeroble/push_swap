@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_push.c                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 19:48:59 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:15:15 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/11 13:01:48 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/11 13:03:17 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+int	ft_min(int a, int b)
 {
-	pb(b, a);
+	if (a < b)
+		return (a);
+	else
+		return (b);
 }
 
-void	pb(t_list **a, t_list **b)
+int	ft_max(int a, int b)
 {
-	t_list	*tmp;
-
-	if (*a == 0)
-		return ;
-	tmp = *a;
-	(*a)->prev->next = (*a)->next;
-	(*a)->next->prev = (*a)->prev;
-	*a = (*a)->next;
-	if ((*a)->next == *a)
-		*a = 0;
-		// TODO
-	ft_lstadd_front(b, tmp);
+	if (a < b)
+		return (b);
+	else
+		return (a);
 }

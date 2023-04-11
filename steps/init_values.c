@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_push.c                             :+:      :+:    :+:   */
+/*   init_values.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 19:48:59 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:15:15 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/11 12:01:31 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/11 12:03:54 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+int	init_values(t_list **a, t_list **b, int argc, char **argv)
 {
-	pb(b, a);
-}
+	int	idx;
 
-void	pb(t_list **a, t_list **b)
-{
-	t_list	*tmp;
-
-	if (*a == 0)
-		return ;
-	tmp = *a;
-	(*a)->prev->next = (*a)->next;
-	(*a)->next->prev = (*a)->prev;
-	*a = (*a)->next;
-	if ((*a)->next == *a)
-		*a = 0;
-		// TODO
-	ft_lstadd_front(b, tmp);
+	*a = 0;
+	*b = 0;
+	idx = 0;
+	while (++idx < argc)
+		ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[idx])));
+	if (is_ascending(*a) == 1)
+		return (-1);
+	return (1);
 }

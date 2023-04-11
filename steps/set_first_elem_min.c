@@ -1,57 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_read.c                                         :+:      :+:    :+:   */
+/*   set_first_elem_min.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 18:06:42 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:07:06 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/11 11:49:46 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/11 11:50:47 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (lst == 0)
-		return (0);
-	return (lst->prev);
-}
-
-int	ft_lstsize(t_list *lst)
+static long long int	find_min(t_list *lst)
 {
 	t_list		*start;
-	long long	size;
+	int			min;
+	long long	idx;
+	int			cnt;
 
-	if (lst == 0)
-		return (0);
-	size = 1;
 	start = lst;
+	idx = 0;
+	cnt = 1;
+	min = lst->content;
 	lst = lst->next;
 	while (start != lst)
 	{
+		if (lst->content < min)
+		{
+			min = lst->content;
+			idx = cnt;
+		}
 		lst = lst->next;
-		size += 1;
+		cnt += 1;
 	}
-	return (size);
+	return (idx);
 }
 
-void	ft_lst_readall(t_list *lst)
+void	set_first_elem_min(t_list **a, int argc)
 {
-	t_list	*lstcpy;
+	int	min_pos;
+	int	cnt;
 
-	if (lst == 0)
+	cnt = 0;
+	min_pos = find_min(*a);
+	if ((argc - 1) / 2 > min_pos)
 	{
-		printf("EMPTY LIST\n");
-		return ;
+		while (cnt < min_pos)
+		{
+			ra(a);
+			cnt += 1;
+		}
 	}
-	lstcpy = lst;
-	printf("%d\n", lst->content);
-	lst = lst->next;
-	while (lst != lstcpy)
+	else
 	{
-		printf("%d\n", lst->content);
-		lst = lst->next;
+		while (cnt < argc - 1 - min_pos)
+		{
+			rra(a);
+			cnt += 1;
+		}
 	}
 }
