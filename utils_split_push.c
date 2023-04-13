@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_accending.c                                     :+:      :+:    :+:   */
+/*   utils_split_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 12:06:45 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:06:57 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/11 11:42:45 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/14 03:59:28 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
-int	is_ascending(t_list *a)
+void	split_push(t_list **a, t_list **b, t_list *start, int argc)
 {
-	t_list	*tmp;
+	int	pivot1;
+	int	pivot2;
 
-	tmp = a;
-	a = a->next;
-	while (tmp != a)
+	find_pivots(*a, argc, &pivot1, &pivot2);
+	ra(a);
+	while ((*a) != start)
 	{
-		if (!(a->prev->content < a->content))
-			return (-1);
-		a = a->next;
+		if ((*a)->content < pivot2)
+		{
+			pb(a, b);
+			if ((*b)->content < pivot1)
+				rb(b);
+		}
+		else
+			ra(a);
 	}
-	return (1);
+	ra(a);
+	while ((*a) != start)
+	{
+		if ((*a)->prev->content > (*a)->content)
+			pb(a, b);
+		else
+			ra(a);
+	}
 }

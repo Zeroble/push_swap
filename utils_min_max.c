@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_delete.c                                       :+:      :+:    :+:   */
+/*   utils_min_max.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minylee <minylee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 18:09:27 by minylee           #+#    #+#             */
-/*   Updated: 2023/03/28 18:09:27 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/11 13:01:48 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/14 03:59:19 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../push_swap.h"
+#include "./push_swap.h"
 
-void	freeall()
+int	ft_min(int a, int b)
 {
-	//TODO : impliment
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+int	ft_max(int a, int b)
+{
+	if (a < b)
+		return (b);
+	else
+		return (a);
 }

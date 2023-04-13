@@ -6,11 +6,11 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:49:01 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 17:40:35 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:59:02 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 /*
 ** ra - rotate a : shift up all elemets of stack a by 1

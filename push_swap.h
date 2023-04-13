@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:51:57 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 22:51:19 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 05:14:24 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# include <stdio.h>
 
 typedef struct s_list
 {
@@ -39,9 +37,7 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 t_list			*ft_lstlast(t_list *lst);
 int				ft_lstsize(t_list *lst);
-void			ft_lstdelone(t_list *lst, void (*del)(void*));
-int				ft_atoi(const char *c);
-void			ft_lst_readall(t_list *lst);
+int				ft_atoi(const char *c, int *sign_flag);
 void			ss(t_list **a, t_list **b);
 void			sb(t_list **b);
 void			sa(t_list **a);
@@ -54,12 +50,20 @@ void			rra(t_list **a);
 void			pb(t_list **a, t_list **b);
 void			pa(t_list **a, t_list **b);
 int				find_mid_value(t_list *a, int argc);
-void			max_select(t_list **a, t_list **b, t_list *start, int argc);
+void			split_push(t_list **a, t_list **b, t_list *start, int argc);
 void			set_first_elem_min(t_list **a, int argc);
 int				is_ascending(t_list *a);
 int				init_values(t_list **a, t_list **b, int argc, char **argv);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
 void			find_pivots(t_list *a, int argc, int *pivot1, int *pivot2);
+void			greedy_rotate(t_list **a, t_list **b, t_move move);
+int				calcurate_score(t_move move);
+void			calcurate_a(t_list *a, int target, t_move *move, int size);
+void			calcurate_b(t_move *move, int idx, int b_size);
+void			lst_freeall(t_list **lst);
+int				greedy_sort(t_list **a, t_list **b);
+int				ft_strncmp(const char *s1, const char *s2, int n);
+int				ft_strlen(const char *s);
 
 #endif

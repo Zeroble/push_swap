@@ -6,11 +6,11 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:48:59 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 17:46:39 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:58:57 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 static void	push(t_list **a, t_list **b)
 {

@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_values.c                                      :+:      :+:    :+:   */
+/*   push_swap_utils_swap.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 12:01:31 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:03:54 by minylee          ###   ########.fr       */
+/*   Created: 2023/03/27 23:02:03 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/14 03:59:05 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
-int	init_values(t_list **a, t_list **b, int argc, char **argv)
+/*
+** sa - swap a
+** sb - swap b
+** ss - sa & sb
+*/
+
+void	swap(t_list **a)
 {
-	int	idx;
+	int	tmp;
 
-	*a = 0;
-	*b = 0;
-	idx = 0;
-	while (++idx < argc)
-		ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[idx])));
-	if (is_ascending(*a) == 1)
-		return (-1);
-	return (1);
+	tmp = (*a)->content;
+	(*a)->content = (*a)->next->content;
+	(*a)->next->content = tmp;
+}
+
+void	sa(t_list **a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_list **b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }

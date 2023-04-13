@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 13:01:48 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 13:03:17 by minylee          ###   ########.fr       */
+/*   Created: 2023/04/14 04:43:46 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/14 04:46:46 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
-int	ft_min(int a, int b)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0' || s2[i] == '\0')
+			return ('\0');
+		i++;
+	}
+	return ('\0');
 }
 
-int	ft_max(int a, int b)
+int	ft_strlen(const char *s)
 {
-	if (a < b)
-		return (b);
-	else
-		return (a);
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		if (*(s + i) == '\0')
+			break ;
+		i++;
+	}
+	return (i);
 }

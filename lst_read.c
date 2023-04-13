@@ -6,11 +6,11 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:06:42 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:07:06 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 04:45:34 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -37,21 +37,17 @@ int	ft_lstsize(t_list *lst)
 	return (size);
 }
 
-void	ft_lst_readall(t_list *lst)
+int	is_ascending(t_list *a)
 {
-	t_list	*lstcpy;
+	t_list	*tmp;
 
-	if (lst == 0)
+	tmp = a;
+	a = a->next;
+	while (tmp != a)
 	{
-		printf("EMPTY LIST\n");
-		return ;
+		if (!(a->prev->content < a->content))
+			return (-1);
+		a = a->next;
 	}
-	lstcpy = lst;
-	printf("%d\n", lst->content);
-	lst = lst->next;
-	while (lst != lstcpy)
-	{
-		printf("%d\n", lst->content);
-		lst = lst->next;
-	}
+	return (1);
 }

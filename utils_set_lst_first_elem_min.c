@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_first_elem_min.c                               :+:      :+:    :+:   */
+/*   utils_set_lst_first_elem_min.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:49:46 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 11:50:47 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:59:25 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 static long long int	find_min(t_list *lst)
 {
