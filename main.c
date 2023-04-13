@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:41:19 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 23:59:01 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 00:10:53 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 	max_select(&a, &b, a, argc);
 	// printf("greedy sort\n");
 	greedy_sort(&a, &b);
+	set_first_elem_min(&a, argc);
 	// printf("set first elem min2\n");
 }
 
