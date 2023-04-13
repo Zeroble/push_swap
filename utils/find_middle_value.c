@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:43:41 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 11:44:54 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 23:53:40 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ static void	bubblesort(int *arr, int n)
 	}
 }
 
-int	find_mid_value(t_list *a, int argc)
+void	find_pivots(t_list *a, int argc, int *pivot1, int *pivot2)
 {
 	int		*arr;
 	t_list	*start;
 	int		cnt;
+	int		pivot_idx;
 
 	start = a;
 	a = a->next;
@@ -54,7 +55,8 @@ int	find_mid_value(t_list *a, int argc)
 		cnt += 1;
 	}
 	bubblesort(arr, argc - 1);
-	cnt = arr[(argc - 1) / 2];
+	pivot_idx = (argc - 1) / 3;
+	*pivot1 = arr[pivot_idx];
+	*pivot2 = arr[pivot_idx * 2];
 	free(arr);
-	return (cnt);
 }

@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:51:57 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 13:03:37 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 22:51:19 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int				is_ascending(t_list *a);
 int				init_values(t_list **a, t_list **b, int argc, char **argv);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
+void			find_pivots(t_list *a, int argc, int *pivot1, int *pivot2);
 
 #endif

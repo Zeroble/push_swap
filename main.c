@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:41:19 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 17:48:25 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 23:59:01 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,12 @@ int main(int argc, char *argv[])
 	// printf("init values \n");
 	init_values(&a, &b, argc, argv);
 	// printf("set first elem min\n");
-	set_first_elem_min(&a, argc);
+	// set_first_elem_min(&a, argc);
 	// printf("max select\n");
 	max_select(&a, &b, a, argc);
 	// printf("greedy sort\n");
 	greedy_sort(&a, &b);
 	// printf("set first elem min2\n");
-	set_first_elem_min(&a, argc);
-	// printf("-----------\n");
-	// ft_lst_readall(a);
-	// printf("-----------\n");
-	// ft_lst_readall(b);
 }
 
 int	greedy_sort(t_list **a, t_list **b)
@@ -57,10 +52,15 @@ int	greedy_sort(t_list **a, t_list **b)
 		{
 			if (best_score == moves[i].score)
 			{
+				// printf("bset is : %d\n", i);
 				greedy_rotate(a, b, moves[i]);
 				break ;
 			}
 		}
+		// printf("-----------\n");
+		// ft_lst_readall(*a);
+		// printf("-----------\n");
+		// ft_lst_readall(*b);
 		free(moves);
 	}
 	return (1);
@@ -68,6 +68,7 @@ int	greedy_sort(t_list **a, t_list **b)
 
 void	greedy_rotate(t_list **a, t_list **b, t_move move)
 {
+	// printf("%d %d\n%d %d\n", move.a_r, move.b_r, move.a_rr, move.b_rr);
 	if (ft_max(move.a_r, move.b_r) == move.score)
 	{
 		while (move.a_r > 0 || move.b_r > 0)
@@ -146,7 +147,12 @@ void	calcurate_a(t_list *a, int target, t_move *move, int size)
 	end = a->prev;
 	while (a != end)
 	{
-		if (a->content > target && a->prev->content < target)
+		if (a->content > a->prev->content)
+		{
+			if (a->content > target && a->prev->content < target)
+				break ;
+		}
+		else if (a->content < a->prev->content && a->content > target)
 			break ;
 		cnt += 1;
 		a = a->next;

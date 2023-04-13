@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:42:45 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/13 17:55:06 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 23:57:09 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,36 @@ static int	*find_path_by_result(int *arr, int argc);
 
 void	max_select(t_list **a, t_list **b, t_list *start, int argc)
 {
-	int	*best_picks;
-	int	best_cnt;
-	int	best_cur;
-	int	cnt;
-	int	mid;
+	int	pivot1;
+	int	pivot2;
 
-	mid = find_mid_value(*a, argc);
-	best_cnt = find_best_picks(*a, argc, &best_picks);
-	best_cur = 1;
-	cnt = 1;
+	find_pivots(*a, argc, &pivot1, &pivot2);
+	// printf("pivots : %d %d\n", pivot1, pivot2);
 	ra(a);
 	while ((*a) != start)
 	{
-		if (best_picks[best_cur] == cnt && best_cur != best_cnt)
+		if ((*a)->content < pivot2)
 		{
-			ra(a);
-			best_cur += 1;
-		}
-		else
-		{
+			// printf("under pivot2 : %d\n", (*a)->content);
 			pb(a, b);
-			if ((*b)->content > mid)
+			if ((*b)->content < pivot1)
 				rb(b);
 		}
-		cnt += 1;
+		else
+			ra(a);
 	}
-	free(best_picks);
+	ra(a);
+	while ((*a) != start)
+	{
+		if ((*a)->prev->content > (*a)->content)
+			pb(a, b);
+		else
+			ra(a);
+	}
+	// printf("-----------\n");
+	// ft_lst_readall(*a);
+	// printf("-----------\n");
+	// ft_lst_readall(*b);
 }
 
 static int	find_best_picks(t_list *cur, int argc, int **ret)
