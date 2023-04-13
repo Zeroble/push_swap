@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 23:02:03 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 11:58:40 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 17:40:42 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	sa(t_list **a)
 	tmp = (*a)->content;
 	(*a)->content = (*a)->next->content;
 	(*a)->next->content = tmp;
+	// write(1, "pb\n", 3);
 }
 
 void	sb(t_list **b)

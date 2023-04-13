@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minylee <minylee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:49:01 by minylee           #+#    #+#             */
-/*   Updated: 2023/03/27 19:49:01 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 17:40:35 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,26 @@
 ** rr - excute ra & rb all
 */
 
-void	ra(t_list **a)
+static void	rotate(t_list **a)
 {
 	*a = (*a)->next;
 }
 
+void	ra(t_list **a)
+{
+	write(1, "ra\n", 3);
+	rotate(a);
+}
+
 void	rb(t_list **b)
 {
-	ra(b);
+	write(1, "rb\n", 3);
+	rotate(b);
 }
 
 void	rr(t_list **a, t_list **b)
 {
-	ra(a);
-	rb(b);
+	write(1, "rr\n", 3);
+	rotate(a);
+	rotate(b);
 }

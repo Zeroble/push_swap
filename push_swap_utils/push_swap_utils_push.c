@@ -6,29 +6,41 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:48:59 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/11 12:15:15 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/13 17:46:39 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_list **a, t_list **b)
-{
-	pb(b, a);
-}
-
-void	pb(t_list **a, t_list **b)
+static void	push(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
 	if (*a == 0)
 		return ;
-	tmp = *a;
-	(*a)->prev->next = (*a)->next;
-	(*a)->next->prev = (*a)->prev;
-	*a = (*a)->next;
-	if ((*a)->next == *a)
+	else if ((*a)->next == *a)
+	{
+		ft_lstadd_front(b, *a);
 		*a = 0;
-		// TODO
-	ft_lstadd_front(b, tmp);
+	}
+	else
+	{
+		tmp = *a;
+		(*a)->prev->next = (*a)->next;
+		(*a)->next->prev = (*a)->prev;
+		*a = (*a)->next;
+		ft_lstadd_front(b, tmp);
+	}
+}
+
+void	pa(t_list **a, t_list **b)
+{
+	write(1, "pa\n", 3);
+	push(b, a);
+}
+
+void	pb(t_list **a, t_list **b)
+{
+	write(1, "pb\n", 3);
+	push(a, b);
 }
