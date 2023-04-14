@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:06:42 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 03:59:38 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:32:00 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ t_list	*ft_lstnew(int num)
 {
 	t_list	*ret;
 
-	ret = malloc(sizeof(t_list));
-	if (ret == 0)
-		return (0);
+	ret = ft_malloc(sizeof(t_list));
 	ret->content = num;
 	ret->next = ret;
 	ret->prev = ret;

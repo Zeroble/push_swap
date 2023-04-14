@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:51:57 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 05:14:24 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:36:48 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void			lst_freeall(t_list **lst);
 int				greedy_sort(t_list **a, t_list **b);
 int				ft_strncmp(const char *s1, const char *s2, int n);
 int				ft_strlen(const char *s);
+void			*ft_malloc(size_t size);
 
 #endif

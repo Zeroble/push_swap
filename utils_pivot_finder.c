@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:43:41 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 03:59:22 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:32:04 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	find_pivots(t_list *a, int argc, int *pivot1, int *pivot2)
 	start = a;
 	a = a->next;
 	cnt = 1;
-	arr = malloc(sizeof(int) * (argc - 1));
+	arr = ft_malloc(sizeof(int) * (argc - 1));
 	arr[0] = start->content;
 	while (start != a)
 	{

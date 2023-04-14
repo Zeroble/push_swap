@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:43:46 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 04:46:46 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:38:43 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ int	ft_strlen(const char *s)
 		i++;
 	}
 	return (i);
+}
+
+void	*ft_malloc(size_t size)
+{
+	void	*mal;
+
+	mal = malloc(size);
+	if (mal == 0)
+		exit(-1);
+	return (mal);
 }

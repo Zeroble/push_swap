@@ -6,20 +6,16 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 22:55:51 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 03:59:00 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 07:42:22 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-/*
-** rra - reverse rotate a : shift down all elemets of stack a by 1
-** rrb - reverse rotate b : shift down all elemets of stack b by 1
-** rrr - excute rra & rrb all
-*/
-
 static void	reverse_rotate(t_list **a)
 {
+	if (*a == 0)
+		return ;
 	*a = (*a)->prev;
 }
 

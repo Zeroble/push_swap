@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:47:45 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 03:59:34 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:56:26 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	greedy_sort(t_list **a, t_list **b)
 	b_size = ft_lstsize(*b);
 	while (b_size > 0)
 	{
-		moves = malloc(sizeof(t_move) * b_size);
+		moves = ft_malloc(sizeof(t_move) * b_size);
 		best_score = find_greedy_picks(*a, *b, moves, b_size);
 		cur = 0;
 		while (cur < b_size)

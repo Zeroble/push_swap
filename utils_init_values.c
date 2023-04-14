@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:01:31 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 05:45:33 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/14 08:17:34 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	check_wrong_value(int argc, char *argv[])
 	{
 		idx2 = 0;
 		strlen = ft_strlen(argv[idx]);
+		if (strlen == 0)
+			print_error_and_exit();
 		while (idx2 < strlen)
 		{
 			if (!(argv[idx][idx2] >= '0' && argv[idx][idx2] <= '9'))
