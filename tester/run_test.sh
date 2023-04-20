@@ -1,2 +1,20 @@
 python ./case_generater.py
-sh ./test_cases.sh | awk 'BEGIN {sum=0; count=0; min=999999; max=-999999} {sum+=$1; count++; if($1<min) min=$1; if($1>max) max=$1} END {print "평균:", sum/count; print "최소값:", min; print "최대값:", max}'
+sh ./test_cases.sh | awk '
+  NR%2==1 {
+    sum += $1
+    count++
+    if (min == "" || $1 < min) min = $1
+    if (max == "" || $1 > max) max = $1
+  }
+  NR%2==0 {
+    if ($1 == "OK") ok_count++
+    else if ($1 == "KO") ko_count++
+  }
+  END {
+    printf("평균: %.2f\n", sum/count)
+    printf("최소값: %d\n", min)
+    printf("최대값: %d\n", max)
+    printf("OK: %d\n", ok_count)
+    printf("KO: %d\n", ko_count)
+  }
+'

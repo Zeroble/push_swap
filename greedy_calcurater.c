@@ -6,7 +6,7 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 00:25:14 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 03:59:32 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/20 17:51:40 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	calcurate_a(t_list *a, int target, t_move *move, int size)
 			if (a->content > target && a->prev->content < target)
 				break ;
 		}
-		else if (a->content < a->prev->content && a->content > target)
-			break ;
+		else if (a->content < a->prev->content)
+			if (a->content > target || a->prev->content < target)
+				break ;
 		cnt += 1;
 		a = a->next;
 	}

@@ -6,11 +6,12 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:47:45 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/20 14:20:28 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/20 17:40:13 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+#include <stdio.h>
 
 static int	find_greedy_picks(t_list *a, t_list *b, t_move *moves, int b_size);
 
@@ -31,6 +32,7 @@ int	greedy_sort(t_list **a, t_list **b)
 		{
 			if (best_score == moves[cur].score)
 			{
+				// printf("%d %d\n%d %d\n", moves->a_r, moves->b_r, moves->a_rr, moves->b_rr);
 				greedy_rotate(a, b, moves[cur]);
 				break ;
 			}
