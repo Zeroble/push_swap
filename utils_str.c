@@ -6,11 +6,12 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:43:46 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 08:38:43 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:16:38 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+#include "./memory_manager.h"
 
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {
@@ -48,6 +49,9 @@ void	*ft_malloc(size_t size)
 
 	mal = malloc(size);
 	if (mal == 0)
+	{
+		free_all_managed_memory();
 		exit(-1);
+	}
 	return (mal);
 }

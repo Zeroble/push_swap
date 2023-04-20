@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bonus_push_swap_utils_rotate.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 19:41:19 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/20 14:44:23 by minylee          ###   ########.fr       */
+/*   Created: 2023/03/27 19:49:01 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/20 14:08:37 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "memory_manager.h"
+#include "./push_swap.h"
 
-int	main(int argc, char *argv[])
+static void	rotate(t_list **a)
 {
-	t_list	*a;
-	t_list	*b;
+	if (*a == 0)
+		return ;
+	*a = (*a)->next;
+}
 
-	init_values(&a, &b, argc, argv);
-	split_push(&a, &b, a, argc);
-	greedy_sort(&a, &b);
-	set_first_elem_min(&a, argc);
-	free_all_managed_memory();
-	return (0);
+void	ra(t_list **a)
+{
+	rotate(a);
+}
+
+void	rb(t_list **b)
+{
+	rotate(b);
+}
+
+void	rr(t_list **a, t_list **b)
+{
+	rotate(a);
+	rotate(b);
 }

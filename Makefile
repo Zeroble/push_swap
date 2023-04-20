@@ -16,6 +16,7 @@ MAIN_OBJ =	greedy_calcurater.o \
 			utils_pivot_finder.o \
 			utils_set_lst_first_elem_min.o \
 			utils_split_push.o \
+			memory_manager.o
 
 BONUS_OBJ =	greedy_calcurater.o \
 			greedy_rotate.o \
@@ -24,10 +25,10 @@ BONUS_OBJ =	greedy_calcurater.o \
 			lst_delete.o \
 			lst_read.o \
 			bonus_main.o \
-			push_swap_utils_push.o \
-			push_swap_utils_reverse_rotate.o \
-			push_swap_utils_rotate.o \
-			push_swap_utils_swap.o \
+			bonus_push_swap_utils_push.o \
+			bonus_push_swap_utils_reverse_rotate.o \
+			bonus_push_swap_utils_rotate.o \
+			bonus_push_swap_utils_swap.o \
 			utils_atoi.o \
 			utils_init_values.o \
 			utils_str.o \
@@ -35,6 +36,7 @@ BONUS_OBJ =	greedy_calcurater.o \
 			utils_pivot_finder.o \
 			utils_set_lst_first_elem_min.o \
 			utils_split_push.o \
+			memory_manager.o
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra

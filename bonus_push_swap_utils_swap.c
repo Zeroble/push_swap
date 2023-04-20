@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bonus_push_swap_utils_swap.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 19:41:19 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/20 14:44:23 by minylee          ###   ########.fr       */
+/*   Created: 2023/03/27 23:02:03 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/20 14:08:42 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "memory_manager.h"
+#include "./push_swap.h"
 
-int	main(int argc, char *argv[])
+static void	swap(t_list **a)
 {
-	t_list	*a;
-	t_list	*b;
+	int	tmp;
 
-	init_values(&a, &b, argc, argv);
-	split_push(&a, &b, a, argc);
-	greedy_sort(&a, &b);
-	set_first_elem_min(&a, argc);
-	free_all_managed_memory();
-	return (0);
+	if (*a == 0)
+		return ;
+	tmp = (*a)->content;
+	(*a)->content = (*a)->next->content;
+	(*a)->next->content = tmp;
+}
+
+void	sa(t_list **a)
+{
+	swap(a);
+}
+
+void	sb(t_list **b)
+{
+	swap(b);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
 }

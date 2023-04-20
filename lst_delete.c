@@ -6,12 +6,11 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:09:27 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 08:59:52 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:30:05 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-#include <stdio.h>
 
 void	lst_freeall(t_list **lst)
 {

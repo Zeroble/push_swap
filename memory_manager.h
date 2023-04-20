@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   memory_manager.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 19:41:19 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/20 14:44:23 by minylee          ###   ########.fr       */
+/*   Created: 2021/05/24 05:12:02 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/20 10:55:58 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "memory_manager.h"
+#ifndef MEMORY_MANAGER_H
+# define MEMORY_MANAGER_H
 
-int	main(int argc, char *argv[])
+# include <stdlib.h>
+
+typedef struct s_memories
 {
-	t_list	*a;
-	t_list	*b;
+	struct s_memories	*next;
+	void				*ptr;
+}	t_memories;
 
-	init_values(&a, &b, argc, argv);
-	split_push(&a, &b, a, argc);
-	greedy_sort(&a, &b);
-	set_first_elem_min(&a, argc);
-	free_all_managed_memory();
-	return (0);
-}
+enum	e_manager_mode{
+	FREE_ALL,
+	APPEND
+};
+
+void	*managed_malloc(int size);
+void	free_all_managed_memory(void);
+
+#endif

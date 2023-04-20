@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_swap.c                             :+:      :+:    :+:   */
+/*   bonus_push_swap_utils_push.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 23:02:03 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/20 14:06:43 by minylee          ###   ########.fr       */
+/*   Created: 2023/03/27 19:48:59 by minylee           #+#    #+#             */
+/*   Updated: 2023/04/20 14:08:26 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static void	swap(t_list **a)
+static void	push(t_list **a, t_list **b)
 {
-	int	tmp;
+	t_list	*tmp;
 
 	if (*a == 0)
 		return ;
-	tmp = (*a)->content;
-	(*a)->content = (*a)->next->content;
-	(*a)->next->content = tmp;
+	else if ((*a)->next == *a)
+	{
+		ft_lstadd_front(b, *a);
+		*a = 0;
+	}
+	else
+	{
+		tmp = *a;
+		(*a)->prev->next = (*a)->next;
+		(*a)->next->prev = (*a)->prev;
+		*a = (*a)->next;
+		ft_lstadd_front(b, tmp);
+	}
 }
 
-void	sa(t_list **a)
+void	pa(t_list **a, t_list **b)
 {
-	swap(a);
-	write(1, "sa\n", 3);
+	push(b, a);
 }
 
-void	sb(t_list **b)
+void	pb(t_list **a, t_list **b)
 {
-	swap(b);
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_list **a, t_list **b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
+	push(a, b);
 }

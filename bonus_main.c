@@ -6,17 +6,17 @@
 /*   By: minylee <minylee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 19:14:20 by minylee           #+#    #+#             */
-/*   Updated: 2023/04/14 09:04:16 by minylee          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:41:19 by minylee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./bonus.h"
 #include "./push_swap.h"
-#include <stdio.h>
+#include "./memory_manager.h"
 
 void		clear_buffer(char *buf, int size);
-void		parse_command(const char *buf, t_list **a, t_list **b);
-static void	print_error_and_exit(void);
+void		parse_command(char *buf, t_list **a, t_list **b);
+static void	print_error_and_exit(char *buf, t_list **a, t_list **b);
 
 static void	free_bonus(char *buf, t_list **a, t_list **b)
 {
@@ -47,14 +47,14 @@ int	main(int argc, char *argv[])
 			break ;
 		}
 		if (!(read_size >= 3 && read_size <= 4))
-			print_error_and_exit();
+			print_error_and_exit(buf, &a, &b);
 		parse_command(buf, &a, &b);
 	}
 	free_bonus(buf, &a, &b);
 	return (0);
 }
 
-void	parse_command(const char *buf, t_list **a, t_list **b)
+void	parse_command(char *buf, t_list **a, t_list **b)
 {
 	if (ft_strncmp(buf, "ra\n", 3) == 0)
 		ra(a);
@@ -79,7 +79,7 @@ void	parse_command(const char *buf, t_list **a, t_list **b)
 	else if (ft_strncmp(buf, "pb\n", 3) == 0)
 		pb(a, b);
 	else
-		print_error_and_exit();
+		print_error_and_exit(buf, a, b);
 }
 
 void	clear_buffer(char *buf, int size)
@@ -94,8 +94,9 @@ void	clear_buffer(char *buf, int size)
 	}
 }
 
-static void	print_error_and_exit(void)
+static void	print_error_and_exit(char *buf, t_list **a, t_list **b)
 {
+	free_bonus(buf, a, b);
 	write(1, "ERROR\n", 6);
 	exit(-1);
 }

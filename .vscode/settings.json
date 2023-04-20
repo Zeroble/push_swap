@@ -16,6 +16,7 @@
 		"utility": "c",
 		"vector": "c",
 		"bonus.h": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"memory_manager.h": "c"
 	}
 }
