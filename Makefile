@@ -30,7 +30,7 @@ BONUS_OBJ =	greedy_calcurater.o \
 			bonus_push_swap_utils_rotate.o \
 			bonus_push_swap_utils_swap.o \
 			utils_atoi.o \
-			utils_init_values.o \
+			bonus_utils_init_values.o \
 			utils_str.o \
 			utils_min_max.o \
 			utils_pivot_finder.o \
@@ -50,9 +50,6 @@ bonus : ${BONUS_NAME}
 %.o : %.c
 	${CC} ${CFLAGS} -c $? -o $@
 
-# %.o : %.c
-# 	${CC} -c $? -o $@
-
 $(NAME) : ${MAIN_OBJ}
 	${CC} $? -o ${NAME}
 
@@ -68,4 +65,5 @@ fclean : clean
 	rm -f ${BONUS_NAME}
 
 re : fclean all
+
 rebonus : fclean bonus
